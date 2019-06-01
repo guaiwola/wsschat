@@ -1,0 +1,409 @@
+/* 顶部导航栏入口 */
+html{
+    font-size: 160px;
+}
+body{
+    background: #ebecf0;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    -webkit-perspective-origin: 50% -50%;
+    perspective-origin: 50% -50%;
+}
+header{
+    width: 100%;
+    height:.5rem;
+    background: #fff;
+    font-size: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all .3s;
+}
+
+.logo,.button{
+    display: inline-block;
+    line-height: .5rem;
+    font-size: .125rem;
+    letter-spacing: .0125rem;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.logo{
+    margin-left: .3125rem;
+}
+.button{
+    width: .1875rem;
+    height: 100%;
+    position: relative;
+    float: right;
+    margin-right: .3125rem;
+    cursor: pointer;
+}
+.menu{
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: #5f656f;
+    opacity: 1;
+    transition: all .3s;
+}
+
+.button::before{
+    content:'';
+    display: block;
+    width:80%;
+    height: 2px;
+    position: absolute;
+    top: .175rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #5f656f;
+}
+.button::after{
+    content:'';
+    display: block;
+    width:80%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: .175rem;
+    right: 0;
+    margin: auto;
+    background: #5f656f;
+}
+.button::before,.button::after{
+    transition: all .3s;
+}
+/* END顶部导航栏入口 */
+
+/* 导航栏 */
+.navigator{
+    width: 100%;
+    padding: .125rem;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    opacity: 0;
+    transition: all .5s;
+}
+.navList{
+    font-size: 0;
+}
+.navList li{
+    display: inline-block;
+    vertical-align: middle;
+    width: 33.3%;
+    padding: .15625rem 0;
+    font-size: .1rem;
+    text-align: center;
+}
+.navList li a{
+    display: block;
+}
+.navList .inner{
+    display: inline-block;
+    position: relative;
+}
+.navList .inner::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    bottom: -0.03125rem;
+    left: 50%;
+    transition: all .3s;
+}
+.navList .hovered .inner::after{
+    width: 100%;
+    left: 0;
+}
+/* END导航栏 */
+
+/* 分享列表 */
+.shareList{
+    font-size: 0;
+    text-align: center;
+    margin-top: .5rem;
+    opacity: 0;
+    transition: all .5s .3s;
+}
+.shareList li{
+    display: inline-block;
+    vertical-align: middle;
+    margin:0 .3125rem;
+}
+.shareList li a{
+    display: block;
+}
+.shareInner{
+    width: .125rem;
+    height: .125rem;
+    transition: all .3s;
+}
+.shareList li:first-child .shareInner{
+    background: url(../img/share/weixin.png) no-repeat center;
+    background-size: contain;
+}
+.shareList li:nth-child(2) .shareInner{
+    background: url(../img/share/sina.png) no-repeat center;
+    background-size: contain;
+}
+.shareList li:nth-child(3) .shareInner{
+    background: url(../img/share/github.png) no-repeat center;
+    background-size: contain;
+}
+.shareList li:first-child:hover .shareInner{
+    background: url(../img/share/weixinHover.png) no-repeat center;
+    background-size: contain;
+}
+.shareList li:nth-child(2):hover .shareInner{
+    background: url(../img/share/sinaHover.png) no-repeat center;
+    background-size: contain;
+}
+.shareList li:nth-child(3):hover .shareInner{
+    background: url(../img/share/githubHover.png) no-repeat center;
+    background-size: contain;
+}
+/* END分享列表 */
+
+/* 表单 */
+.content{
+    width: 100%;
+    height: 100vmax;
+    padding: .75rem .3125rem 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    background: #fff;
+    transition: all .3s;
+}
+.content form{
+    width: 100%;
+    margin: 0 auto;
+    font-size: 0;
+    position: relative;
+}
+.formData,.formImg{
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    font-size: .1rem;
+}
+.formData{
+    width:55%;
+}
+.formImg{
+    width: 45%;
+    height: 3rem;
+    background: url(../img/Rain.png) no-repeat center;
+    background-size: contain;
+}
+.content .titleWrap{
+    margin-bottom: 1rem;
+}
+.content .tip{
+    color: #444444;
+}
+.content .title{
+    font-size: .1875rem;
+    color: #333333;
+    margin-bottom: .2rem;
+}
+.content .inputBox{
+    display: block;
+    width: 85%;
+    height: .25rem;
+    margin: .25rem 0;
+    padding-left: .15625rem;
+    border: 1px solid #5f656f;
+    border-radius: 50px;
+    font-size: .0875rem;
+}
+.content .inputBox:focus{
+    outline:none;
+    border: 1px solid #0080FF; 
+}
+.content .submit{
+    display: block;
+    width: .625rem;
+    height: .25rem;
+    border: 0;
+    border-radius: 50px;
+    background:#0080FF;
+    font-size: .0875rem;   
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all .3s;
+}
+.content .submit:hover{
+    background: #555555;
+}
+.layer1,.layer2{
+    width: 100%;
+    height: 40vh;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .9;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+}
+.layer1{
+    transform: translate3d(0,60vh,-300px);
+    z-index: 0;
+}
+.layer2{
+    transform: translate3d(0,60vh,-250px);
+    z-index: 10;
+}
+/* END表单 */
+
+/* 点击菜单按钮为body添加类名，修改样式 */
+/* header */
+.buttonClicked header{
+    background: transparent;
+}
+.buttonClicked .menu{
+    opacity: 0;
+}
+.buttonClicked .button::before,
+.buttonClicked .button::after{
+    width: 100%;
+    top: 50%;
+    bottom: 50%;
+}
+.buttonClicked .button::before{
+    transform: rotate(45deg);
+}
+.buttonClicked .button::after{
+    transform: rotate(-45deg);
+}
+/* 表单 */
+.buttonClicked .content{
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+    transform: translate3d(0px,60vh,-200px);
+}
+/* 导航栏 */
+.buttonClicked .navigator{
+    opacity: 1;
+    top: .5rem;
+}
+.buttonClicked .shareList{
+    font-size: 0;
+    text-align: center;
+    margin-top: .15625rem;
+    opacity: 1;
+}
+
+/* 适配移动端 */
+@media screen and (max-width:750px){
+    body{
+        height:100vmax;
+    }
+    /* header */
+    header{
+        height: 15vmin;
+    }
+    .logo, .button {
+        line-height: 15vmin;
+        font-size: 5vmin;
+        letter-spacing: 1px;
+    }
+    .logo {
+        margin-left:5vmin;
+    }
+    .button{
+        width: 7.5vmin;
+        margin-right: 5vmin;
+    }
+    .button::before{
+        top: 4.5vmin;
+    }
+    .button::after{
+        bottom:4.5vmin;
+    }
+    /* 表单部分 */
+    .content{
+        padding:23vmin 5vmin 0;
+    }
+    .content .title{
+        font-size: 5.5vmin;
+        margin-bottom:5vmin;
+    }
+    .content .tip{
+        font-size: 4vmin;
+        color: #777;
+    }
+    .content .titleWrap{
+        margin-bottom:15vmin;
+    }
+    .formData{
+        width: 100%;
+    }
+    .formImg{
+        width: 0;
+        height:56vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 30vmin;
+        margin: auto;
+        z-index: -1;
+        opacity: .1;
+    }
+    .content .inputBox{
+        width: 100%;
+        height: 11vmin;
+        margin: 5.5vmin 0;
+        padding-left: 5vmin;
+        border-radius: 6vmin;
+        font-size: 3.5vmin;
+        border: 2px solid #5f656f;
+    }
+    .content .inputBox:focus{
+        border: 2px solid #0080FF;
+    }
+    .content .submit{
+        position: relative;
+        width: 40%;
+        height: 11vmin;
+        border-radius: 6vmin;
+        font-size: 3.5vmin;
+        margin-top: 5vmin;
+    }
+    /* 导航栏 */
+    .buttonClicked .navigator{
+        top: 15vmin;
+        padding: 0 5vmin;
+    }
+    .navList li{
+        padding:3vmin 0;
+        font-size:4vmin;
+    }
+    .buttonClicked .shareList{
+        margin-top: 5vmin;
+    }
+    .shareList li{
+        margin: 0 5vmin;
+    }
+    .shareInner{
+        width: 5vmin;
+        height: 5vmin;
+    }
+}

@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* 取消移动端点击浅色背景 */
+html,body{
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a{
+    color: #666666;
+}
+a:hover{
+    text-decoration:none;
+}
+li{
+    list-style: none;
+}
+input, textarea{
+    -webkit-appearance:none;
+}
+.clearfix::after{
+    content:'';
+    display:block;
+    width: 0;
+    clear: both;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport'
+        content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>输入框</title>
+</head>
+
+<body contenteditable="true" id="inputBox"></body>
+
+<script type="text/javascript">
+    var parentWindow=window.parent;
+    var inputBox = document.getElementById("inputBox");
+    inputBox.onkeyup = getCursor;
+    inputBox.onclick = getCursor;
+
+    //插入emoji图片函数，供top frame调用，emojiHtml为emoji图片html代码
+    function focusBox(emojiHtml) {
+        inputBox.focus();
+        getCursor();
+        insertImage(emojiHtml);
+    }
+
+    function getCursor() {
+        var inputBox = document.getElementById("inputBox");
+        //获取光标位置
+        saveSelection();
+        // 删除emoji后设置输入框为空以去掉换行符
+        if (inputBox.innerHTML == "<br>") {
+            inputBox.innerHTML = "";
+        }
+    }
+    //获取光标位置，插入图片，
+    var currentRange, _parentElem, supportRange = typeof document.createRange === 'function';
+    function getCurrentRange() {
+        var selection,
+            range;
+        // txt = $('editor');
+        if (supportRange) {
+            selection = document.getSelection();
+            if (selection.getRangeAt && selection.rangeCount) {
+                range = document.getSelection().getRangeAt(0);
+                _parentElem = range.commonAncestorContainer;
+            }
+        } else {
+            range = document.selection.createRange();
+            _parentElem = range.parentElement();
+        }
+        if (_parentElem) {
+            parentElem = _parentElem;
+            return range;
+        }
+        return range;
+    }
+    function saveSelection() {
+        currentRange = getCurrentRange();
+    }
+    function restoreSelection() {
+        if (!currentRange) {
+            return;
+        }
+        var selection,
+            range;
+        if (supportRange) {
+            selection = document.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(currentRange);
+        } else {
+            range = document.selection.createRange();
+            range.setEndPoint('EndToEnd', currentRange);
+            if (currentRange.text.length === 0) {
+                range.collapse(false);
+            } else {
+                range.setEndPoint('StartToStart', currentRange);
+            }
+            range.select();
+        }
+    }
+    function insertImage(html) {
+        restoreSelection();
+        if (document.selection) {
+            currentRange.pasteHTML(html);
+        }
+        else {
+            var r = document.execCommand("insertHTML", false, html);
+        }
+        saveSelection();
+    }
+
+    inputBox.onkeydown=function(e){
+        var eventKeyCode=e.keyCode || e.which || e.charCode;
+        var eventCtrlKey=e.ctrlKey || e.metaKey;
+        if(eventCtrlKey&&eventKeyCode==13){
+            parentWindow.sendBox.sendMessage();
+            // console.log("5555");
+        }
+        // console.log("333");
+        // 输入框切换Boss窗口
+        if(eventCtrlKey&&eventKeyCode==81){
+            if(!parentWindow.bossFrame.isShow){
+                parentWindow.showBossFrame();
+            }else{
+                parentWindow.hideBossFrame();
+            }
+        }
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/reset.css" type="text/css"/>
+    <script src="../static/js/autoChange.js" type="text/javascript"></script>
+    {% block title %}<title>登陆失败</title>{% endblock %}
+    <style type="text/css">
+        .wrapper{
+            width: 1200px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+        .wrapper h1{
+            font-size: .2125rem;
+            text-align: center;
+        }
+        .displayImg{
+            width: 300px;
+            margin: .3rem auto;
+        }
+        .displayImg img{
+            width: 100%;
+        }
+        .tip{
+            width: 2rem;
+            margin: 0 auto;
+            font-size: .0875rem;
+            /* text-align: center; */
+            color: #dddddd;
+        }
+        .tip span{
+            color: #333;
+            margin-right: .0625rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        {% block signinState %}<h1>登录失败</h1>{% endblock %}
+        {% block displayImage %}
+        <div class="displayImg">
+            <img src="../static/img/loginStatic/failed.png" alt="登录失败"/>
+        </div>
+        {% endblock %}
+        {% block tip %}<div class="tip"><span>&bull;</span>ok</div>{% endblock %}
+    </div>
+</body>
+</html>

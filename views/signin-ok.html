@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>{{signinState}}</title>{% endblock %}
+{% block signinState %}<h1>{{name}} {{signinState}}</h1>{% endblock %}
+{% block displayImage %}
+    <div class="displayImg" style="width: 2rem">
+        <img src="../static/img/loginStatic/success.png" alt="{{signinState}}"/>
+    </div>
+{% endblock %}
+{% block tip %}<div class="tip"><span>&bull;</span>{{ title }}</div>{% endblock %}

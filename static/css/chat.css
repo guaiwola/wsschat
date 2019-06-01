@@ -1,0 +1,1108 @@
+body{
+    background: url(../img/beijing.jpg);
+    height: 100vh;
+    overflow: hidden;
+}
+.noscroll{
+    overflow: hidden;
+}
+.superMask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background:#fff url(../img/chat/loading.gif) no-repeat center;
+    background-size: 10%;
+    z-index: 200;
+}
+.superMask.superMaskAction{
+    display: none;
+}
+/* 用户登录 */
+.mask{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.3);
+    /* filter: blur(5px); */
+    z-index: 100;
+}
+.loginWrap{
+    /* display: none; */
+    width: 500px;
+    height: 600px;
+    border-radius: 10px;
+    background:#fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 1;
+    z-index: 110;
+    transition: all .3s linear;
+}
+
+.loginWrap.action{
+    top: auto;
+    bottom:100%;
+    opacity: 0;
+}
+.loginWrap form{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+/* 头像 */
+.logHeadImg{
+    width:200px;
+    height: 250px;
+    margin: 20px auto 70px; 
+}
+.logChooseImg{
+    width: 100%;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid #4D5177;
+}
+.logChooseImg img{
+    width: 100%;
+}
+.logChooseText{
+    margin-top: 15px;
+    font-size: 15px;
+    text-align: center;
+    color: #aaaaaa;
+    cursor: pointer;
+    transition: all .3s;
+}
+.logChooseText:hover{
+    color: #428A84;
+}
+.loginWrap .logUserName,
+.loginWrap .logSubmit{
+    display: block;
+}
+.loginWrap .logUserName,
+.loginWrap .logSubmit{
+    font-size: 14px;
+    -webkit-appearance: none;
+    width: 350px;
+    height: 45px;
+    margin: 0 auto;
+    border-radius:25px; 
+}
+.loginWrap .logUserName{
+    text-align: center;
+    border: 2px solid #4D5177;
+    transition: all .3s;
+}
+.loginWrap input:focus{
+    border: 2px solid #2C325E;
+    outline: none;
+}
+/* 提交按钮 */
+.loginWrap .logSubmit{
+    margin-top: 25px;
+    border: 0;
+    background: #4D5177;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.loginWrap .logSubmit:hover{
+    background: #2C325E;
+}
+.middle{
+    display: inline-block;
+    vertical-align: middle;
+}
+.middle.blank{
+    width: 0;
+    height: 100%;
+}
+
+/* 头像列表 */
+.headImgDisplay{
+    width: 700px;
+    height:500px;
+    font-size: 0;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 10px;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 120;
+    opacity: 0;
+    transition: all .3s linear;
+}
+.headImgDisplay.action{
+    opacity: 1;
+    top: 0;
+    bottom: 0;
+}
+.headImgList{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 0;
+}
+.headImgList li{
+    display: inline-block;
+    width: 20%;
+    background: #fff;
+    cursor: pointer;
+    border: 3px solid #fff;
+    border-radius:10px;
+    overflow: hidden;
+    transition: all .1s;
+}
+.headImgListInner{
+    margin: 4px;
+}
+.headImgList li:hover{
+    border-color: #4D5177;
+}
+.headImgList li img{
+    width: 100%;
+}
+
+/* 导航栏 */
+#nav{
+    width: 100%;
+    height: 60px;
+    background: rgba(152,155,176,.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow:0 0 10px 0 rgba(0,0,0,.1); 
+    z-index:100;
+}
+.navInner{
+    width: 1300px;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 0;
+    /* overflow: hidden; */
+}
+.navInner .middle{
+    display: inline-block;
+    vertical-align: middle;
+}
+.navInner .middle.blank{
+    width: 0;
+    height:100%;
+}
+.navUserInfo{
+    width:45px;
+    height: 100%;
+    float: right;
+    position: relative;
+}
+.navHeadDetial{
+    width: 250px;
+    height:150px;
+    position: absolute;
+    top: 100%;
+    left:-103px;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 5px 5px 0 0;
+    font-size: 14px;
+    box-shadow:0 5px 8px 0 rgba(0,0,0,.1);
+    position: relative;
+    animation-duration: .5s !important;
+    animation-delay: .3s !important;
+    z-index: 21;
+}
+.navUserName{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    color: #FF5A13;
+}
+.switchUser{
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    left: 0;
+    bottom: 0;
+    background: #f5f5f5;
+    text-align: right;
+}
+.switchUser span{
+    padding-right: 10px;
+    line-height: 35px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.navHeadImg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 22;
+    transition: all .3s .2s;
+}
+.navHeadImgInner{
+    width: 100%;
+    height:45px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
+}
+.navHeadImg.navHeadImgAction{
+    top:57%;
+    bottom: auto;
+    transform: scale(1.5);
+}
+
+.navHeadImg img{
+    width: 100%;
+    height: 100%;
+}
+.quit{
+    width: 100px;
+    height: 100%;
+    margin: 0 20px;
+    line-height:60px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.inLine{
+    display: none;
+}
+
+/* 消息显示区 */
+.main{
+    width: 1300px;
+    /* height: 100vh; */
+    min-width: 425px;
+    margin: 0 auto;
+    padding-top: 10vh;
+    font-size: 0;
+    background: url(../img/beijing.jpg);
+}
+/* 标题 */
+.title{
+    font-size: 30px;
+    margin-bottom: 4vh;
+}
+.title span{
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 15px;
+    height: 100%;
+    color: #a4dcea;
+}
+/* 版本 */
+.title span.version{
+    font-size: 20px;
+    font-weight: lighter;
+    color: #FF5A13;
+}
+/* 消息窗口 */
+.chatBoxWrap{
+    width: 100%;
+    height: 70vh;
+    background: #fff;
+    border-radius:5px;
+    overflow: hidden; 
+    position: relative;
+}
+
+#chatBox{
+    display: inline-block;
+    width: 72%;
+    height:calc(100% - 80px);
+    background: #fff;
+    overflow: hidden;
+    transition: all .3s;
+}
+#chatBox.emojiShow{
+    height:calc(100% - 280px);
+}
+#chatBox.upLoadBoxShow{
+    height:calc(100% - 170px);
+}
+.chatInnerBox{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/* .chatInnerBox::-webkit-scrollbar {
+    display: none;
+} */
+/* 消息 */
+.message{
+    width:75%;
+    font-size: 0;
+    margin-bottom: 20px; 
+    clear: both;
+}
+.message .headImg,
+.message .messageText{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+    word-break: break-all;
+}
+/* 头像 */
+.headImg{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.headImg img{
+    width: 100%;
+    height: 100%;
+}
+/* 消息文本 */
+.message .messageText{
+    width: calc(100% - 55px); 
+    padding-left: 20px;
+    letter-spacing: 1px;
+    position: relative;
+}
+.userName{
+    font-size: 12px;
+    color: #aaaaaa;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+.text{
+    display: inline-block;
+    background: url(../img/chat/redBG.jpg) repeat top left;
+    color: #fff;
+    margin-top: 5px;
+    padding:10px;
+    border-radius: 0 10px 10px 15px;
+    max-width: 100%;
+    position: relative;
+}
+.text pre{
+    display: inline-block;
+    width: 100%;
+    white-space: pre-wrap;
+    line-height: 20px;
+}
+.text pre a{
+    color: #7A34D9;
+}
+.text pre img{
+    width: 100%;
+}
+.operation{
+    display: none;
+    width: 35px;
+    height: 20px;
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    cursor: pointer;
+}
+.operation.copy{
+    background: url(../img/chat/copy.png) no-repeat center;
+    background-size: contain;
+}
+.operation.reload{
+    background: url(../img/chat/reload.png) no-repeat center;
+    background-size: contain;
+}
+.messageText:hover .text .operation.copy{
+    display: block;
+}
+/* 区分自己发送的消息 */
+.message.self{
+    float: right;
+}
+.message.self .messageText{
+    padding-left: 0;
+    padding-right: 20px;
+}
+.message.self .headImg,
+.message.self .messageText .userName,
+.message.self .messageText .text{
+    float: right;
+}
+.message.self .messageText .text{
+    background:url(../img/chat/blueBG.jpg) repeat top left;
+    clear: both;
+    border-radius: 10px 0 15px 10px;
+}
+.message.self .messageText .userName{
+    width: 100%;
+    text-align: right;
+}
+.message.self .operation{
+    left: auto;
+    right: 100%;
+}
+/* 图片显示样式 */
+.message .messageText .text.chatBoxImage{
+    padding: 0;
+    font-size: 0;
+    background:transparent;
+}
+.message .messageText .text.chatBoxImage.desktop{
+    max-width: 50%;
+}
+.message .messageText .text.chatBoxImage pre{
+    line-height:0;
+    font-size: 0;
+    border-radius:5px;
+    background: url(../img/chat/transparentBG.jpg) repeat left top;
+    background-size: 10%;
+    overflow: hidden;
+}
+.message .messageText:hover .text.chatBoxImage .operation.copy{
+    display: none;
+}
+.message .messageText:hover .text.chatBoxImage .operation.reload{
+    display: block;
+}
+/* 文件卡片显示样式 */
+.message .messageText .text.chatBoxFile{
+    padding: 0;
+    background:transparent;
+}
+.message .messageText .text.chatBoxFile .operation{
+    display: none !important;
+}
+.message .messageText .text.chatBoxFile .downloadFile{
+    display: block;
+    width: 250px;
+    height: 100px;
+    color: #fff;
+    text-decoration: none;
+    /* font-weight: bold; */
+    /* background: #fff; */
+    border-radius: 5px;
+    padding: 10px 15px;
+    background: url(../img/chat/chatBoxFileBG.jpg) no-repeat center;
+    background-size: cover;
+}
+.downloadFile .fileName{
+    width: 70%;
+    margin-top: 15px;
+    font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    overflow: hidden;
+}
+.downloadFile .fileSize{
+    margin-top: 10px;
+}
+
+/* 提示信息 */
+.tips{
+    /* display: none; */
+    width: 300px;
+    height: 55px;
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 55px;
+    text-align: center;
+    background:url(../img/chat/tips.png) no-repeat center;
+    background-size: contain;
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    margin: auto;
+    user-select: none;
+    z-index: 10;
+}
+
+/* 用户列表 */
+#userListBox{
+    float: right;
+    width: 28%;
+    height:100%;
+    padding: 20px;
+    background: #fafafa;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.userListHeadImg,.userListUserName{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.userList::-webkit-scrollbar{
+    display: none;
+}
+.userList .user{
+    width: 100%;
+    padding: 7px 0;
+    border-bottom: 1px solid #eee;
+}
+.userList .user:first-child{
+    padding-top: 0;
+}
+.userListHeadImg{
+    width:55px;
+    height: 55px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.userListHeadImg img{
+    width: 100%;
+    height: 100%;
+}
+.userListUserName{
+    width: calc(100% - 75px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 20px;
+    font-size: 15px;
+}
+
+/* 消息输入框 */
+#sendBox{
+    width: 72%;
+    height: 80px;
+    font-size: 0;
+    padding: 20px;
+    position: absolute;
+    background: #eee;
+    user-select: none;
+    transition: all .3s;
+    left: 0;
+    bottom: 0;
+}
+#sendBox.emojiShow{
+    position: absolute;
+    bottom: 200px;
+    left: 0;
+}
+#sendBox.upLoadBoxShow{
+    bottom: 90px;
+}
+#sendBox .textareaWrap,
+#sendBox .sendBtn,
+#sendBox .upLoadFile,
+#sendBox .emoji{
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+    font-size: 14px;
+}
+#sendBox .textareaWrap{
+    width: 69%;
+    height: 40px;
+    -webkit-appearance: none;
+    border: 0;
+    background: #fff;
+    border-radius:5px; 
+    overflow: hidden;
+}
+#sendBox .inputBox{
+    width: 103%;
+    height: 100%;
+    /* padding:10px; */
+    border: 0;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#sendBox .inputBox:focus{
+    outline: none;
+}
+/* 发送按钮 */
+#sendBox .sendBtn{
+    /* float: right; */
+    width: 15%;
+    height: 40px;
+    margin-left: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    background: #0080FF;
+    border-radius:5px; 
+    cursor: pointer;
+    user-select: none;
+    transition: all .3s;
+}
+#sendBox .sendBtn:hover{
+    background: rgb(59, 59, 59);
+}
+/* 发送图片按钮 */
+.upLoadFile,
+.emoji{
+    width: 40px;
+    margin-left:20px;
+    cursor: pointer;
+    position: relative;
+}
+.upLoadFile{
+    background: url(../img/chat/upLoad/addBtn.png) no-repeat center;
+    background-size:85%; 
+}
+.emoji{
+    background: url(../img/chat/upLoad/emoji.png) no-repeat center;
+    background-size:85%; 
+}
+.upLoadFileBox{
+    /* display: none; */
+    width: 100%;
+    height: 90px;
+    position: absolute;
+    top:100%;
+    left: 0;
+    z-index: 101;
+    animation-duration: 0.4s !important;
+}
+
+.upLoadFileInner{
+    width: 100%;
+    height: 100%;
+    background: #dddddd;
+    font-size: 0;
+    position: relative;
+}
+
+.upLoadFileInner form{
+    height: 50px;
+}
+.upLoadFileInner li{
+    display: inline-block;
+    font-size: 15px;
+    width: 50px;
+    height: 50px;
+    margin: 20px 0 0 20px;
+}
+.upLoadFileInner li label{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.upLoadFileInner li:first-child .upLoadImg{
+    background:#fff url(../img/chat/upLoad/upLoadImg.png) no-repeat center;
+    background-size: 75%;
+}
+.upLoadFileInner li:nth-child(2) .upLoadImg{
+    background:#fff url(../img/chat/upLoad/upLoadFile.png) no-repeat center;
+    background-size: 70%;
+}
+.upLoadImg input{
+    display: none;
+}
+/* emoji表情图片 */
+.emojiWrap{
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 100%;
+    left: 0;
+    background: #eee;
+    overflow: hidden;
+}
+.weiboEmoji{
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.weiboEmoji li{
+    display: inline-block;
+    vertical-align: middle;
+    width: 4%;
+    /* height: 32px;
+    border: 1px solid #eeeac9;
+    margin: -1px 0 0 -1px; */
+    padding: 5px;
+    cursor: pointer;
+}
+.weiboEmoji li img{
+    width: 100%;
+    height: 100%;
+}
+/* 上传文件进度条 */
+.process{
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+}
+.processBar{
+    width: 100%;
+    height:100%;
+    background: -webkit-linear-gradient(135deg, #ABDCFF, #0396FF);
+    /* Safari 5.1 - 6.0 */ 
+    background: -o-linear-gradient(135deg,  #ABDCFF, #0396FF); 
+    /* Opera 11.1 - 12.0 */ 
+    background: -moz-linear-gradient(135deg,  #ABDCFF, #0396FF); 
+    /* Firefox 3.6 - 15 */ 
+    background: linear-gradient(135deg,  #ABDCFF, #0396FF); 
+    /* 标准的语法 */
+    border-radius: 5px;
+}
+.processText{
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    width: 30px;
+    height: 15px;
+    color: #333;
+    line-height: 15px;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* bossFrame */
+#bossFrame{
+    /* display: none; */
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* 适配移动端 */
+@media screen and (max-width:750px){
+    body{
+        min-height:100vmax;
+    }
+    /* #login{
+        display: none;
+    } */
+    /* 登录表单 */
+    .loginWrap{
+        width: 90vw;
+        height: 108vw;
+        border-radius: 10px;
+    }
+    .logHeadImg{
+        width: 36vw;
+        height: auto;
+        margin: 5vw auto 10vw;
+    }
+    .logChooseImg{
+        height: 36vw;
+    }
+    .logChooseText{
+        margin-top: 3vw;
+        font-size: 3.5vw;
+    }
+    .loginWrap .logUserName, .loginWrap .logSubmit{
+        font-size: 3.5vw;
+        width: 65vw;
+        height: 10vw;
+        border-radius:5vw;
+    }
+    .loginWrap .logSubmit{
+        margin-top: 5vw;
+    }
+    /* 头像列表 */
+    .headImgDisplay{
+        width:90vw;
+        height: 85vmax;
+    }
+    .headImgList{
+        padding: 1vw;
+    }
+    .headImgList li{
+        width: 33.3%;
+        border: 2px solid #fff;
+    }
+    
+    /* 导航栏 */
+    #nav{
+        height: 15vw;
+    }
+    .navInner{
+        width: 100vw;
+        position: relative;
+    }
+    .quit{
+        width:40vw;
+        margin: 0 3vw;
+        line-height: 15vw;
+        font-size: 4vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    .inLine{
+        display: block;
+        /* width: 20vw; */
+        height: 100%;
+        font-size: 4vw;
+        line-height: 15vw;
+        text-align: center;
+        color: #fff;
+        float: right;
+        margin-right: 5vw;
+    }
+    .inLine.inlineActive{
+        color: #FF9568;
+    }
+    .navUserInfo{
+        width: 10vw;
+        margin-right: 0;
+        margin-left: 5vw;
+        float: none;
+    }
+    .navHeadImgInner{
+        height: 10vw;
+    }
+    .navHeadDetial{
+        width: 150%;
+        height: 30vw;
+        left: -25%;
+        transform: translateX(0);
+        border-radius: 0 0 7.5vw 7.5vw;
+        overflow: hidden;
+    }
+    .switchUser{
+        height: 15vw;
+        border-radius: 50%;
+        background:#f5f5f5 url(../img/chat/quit.png) no-repeat center;
+        background-size: 45%;
+    }
+    .switchUser span{
+        display: none;
+    }
+    .navUserName{
+        display: none;
+    }
+    /* 会话界面 */
+    .main{
+        width: 100vw;
+        height: 100vh;
+        min-width: 100vw;
+        padding-top:15vw;
+        position: relative;
+    }
+    .title {
+        font-size: 5vw;
+        margin-bottom: 4vh;
+    }
+    .title {
+        display: none;
+    }
+    .chatBoxWrap{
+        height:100%;
+    }
+    .chatBoxWrap{
+        border-radius: 0;
+    }
+    #chatBox{
+        width:100%;
+        height: calc(100% - 15vw);
+        background: url(../img/beijing.jpg)
+    }
+    #chatBox.emojiShow{
+        height: calc(100% - 70vw);
+    }
+    #chatBox.upLoadBoxShow{
+        height: calc(100% - 41vw);
+    }
+    .tips{
+        width: 75vw;
+        height: 14vw;
+        font-size: 3.8vw;
+        line-height: 15vw;  
+    }
+    /* 用户列表 */
+    #userListBox{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height:100%;
+        z-index: 22;
+        padding: 5vw;
+    }
+    .userList .user{
+        padding: 2vw 0;
+    }
+    .userListHeadImg{
+        width:12vw;
+        height: 12vw;
+    }
+    .userListUserName{
+        width: calc(100% - 17vw);
+        padding-left: 5vw;
+        font-size: 4vw;
+    }
+
+    /* 输入框 */
+    #sendBox .textareaWrap, 
+    #sendBox .sendBtn, #sendBox .upLoadFile, 
+    #sendBox .emoji{
+        height: 10vw;
+        font-size: 3.5vw;
+    }
+    #sendBox{
+        width: 100%;
+        height: 15vw;
+        padding:0 0 0 2.5vw;
+    }
+    #sendBox.upLoadBoxShow{
+        bottom: 26vw;
+    }
+    #sendBox.sendBoxToMiddle{
+        bottom: 20vh;
+    }
+    #sendBox .textareaWrap{
+        width: 65%;
+        height: 10vw;
+    }
+    .upLoadFile{
+        width: 10vw;
+        height: 100% !important;
+        margin: 0 2vw;
+    }
+    .emoji{
+        width: 10vw;
+    }
+    #sendBox .sendBtn {
+        width: 14%;
+        height: 10vw;
+        position: absolute;
+        top: 0;
+        /* left: 0; */
+        right: 2vw;
+        bottom: 0;
+        margin: auto;
+        z-index: 20;
+    }
+    #sendBox textarea{
+        padding:3.5vw 0 0 3.5vw;
+    }
+    #sendBox .sendBtn:hover{
+        background: #0080FF;
+    }
+    .emojiWrap{
+        height: 55vw;
+    }
+    #sendBox.emojiShow{
+        bottom: 55vw;
+    }
+    .weiboEmoji li{
+        width: 10%;
+        padding: 2vw;
+    }
+    /* 选择图片 */
+    .upLoadFileBox{
+        width: 100%;
+        height: 26vw;
+        left:0;
+    }
+    .upLoadFileInner li{
+        font-size: 3.5vw;
+        width:14vw;
+        height:14vw;
+        margin: 6vw 0 6vw 6vw;
+    }
+    .upLoadFileInner form{
+        height:100%;
+    }
+    .upLoadFileInner::after{
+        border: 1.8vw solid #dddddd;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+    }
+    .upLoadFileInner{
+        height:100%;
+    }
+
+    /* 聊天窗口消息列表 */
+    .message{
+        width: 80%;
+        margin-bottom: 5vw;
+    }
+    .headImg{
+        width:12vw;
+        height: 12vw;
+    }
+    .userName{
+        font-size: 3vw;
+    }
+    .text{
+        margin-top:1vw;
+        padding: 2.5vw;
+    }
+    .text pre{
+        line-height: 4.5vw;
+    }
+    .message .headImg, .message .messageText{
+        font-size: 4vw;
+    }
+    .message .messageText{
+        padding-left: 3vw;
+    }
+    .message.self .messageText{
+        padding-right: 3vw;
+    }
+    /* 文件卡片 */
+    .message .messageText .text.chatBoxFile .downloadFile{
+        width: 54vw;
+        height: 22vw;
+        border-radius: 7px;
+        padding: 2vw;
+    }
+    .downloadFile .fileName{
+        margin-top: 4vw;
+        font-size: 4vw;
+    }
+    .downloadFile .fileSize{
+        margin-top: 2vw;
+        font-size: 3.5vw;
+    }
+}
