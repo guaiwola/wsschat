@@ -1,4 +1,4 @@
-###WebChat聊天室
+#WebChat聊天室
 
 Chat聊天室是一个基于nodejs 网页聊天室工具。。服务端使用ko2搭建web服务，实现了一些基本的聊天功能。
 

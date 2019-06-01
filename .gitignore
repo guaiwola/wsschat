@@ -2,7 +2,7 @@
 node_modules/
 dist/
 public/
-
+.vscode/
 npm-debug.log
 yarn-error.log
 .eslintcache
